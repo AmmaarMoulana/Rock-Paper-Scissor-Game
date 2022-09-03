@@ -1,0 +1,83 @@
+#header {
+    background-color: rgb(0, 0, 0);
+    color: rgb(71, 105, 199);
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+}
+
+.weapons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    
+}
+
+.chooseweapon {
+    display: flex;
+    gap: 150px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: -5px 0px -5px 0px;
+}
+
+#results {
+    display: flex;
+    background-color: rgb(54, 68, 187);
+    color: aliceblue;
+    padding: 25px;
+    justify-content: center;
+    align-items: flex-end;
+    height: 194px;
+}
+
+#textResult {
+    display: flex;
+    color: white;
+    background-color: rgb(54, 68, 187);
+    justify-content: center;
+    height: 15px;
+    padding: 10px;
+    margin: 20px 500px 20px 500px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(54, 68, 187);
+    color:rgb(0, 0, 0);
+    padding: 5px;
+    
+}
+
+#over {
+    font-size: 50px;
+    color: black;
+}
+
+#rock {
+    height: 170px;
+    width: 250px;
+}
+
+#paper {
+    
+    height: 200px;
+    width: 250px;
+}
+
+#scissor {
+    
+    height: 170px;
+    width: 250px;
+}
+
+h2 {
+    color: rgb(54, 68, 187);
+    
+}
