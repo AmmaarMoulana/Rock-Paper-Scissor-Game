@@ -12,48 +12,70 @@ function getComputerChoice() {
 
 }
 
+//global variables
+let computerScore = 0
+let playerScore = 0
+let round = 0;  
+
+///game over function
+function gameOver() {
+    computerScore = 0
+    playerScore = 0
+    round = 0
+    return textResult.textContent="Game Restarted";
+}
+
+
 //Play a round, Function takes in player choice and random computer choice.
 
 function playRound(playerSelection,computerSelection) {
-    playerSelection = playerSelection.toLowerCase()
+    playerSelection = playerSelection.toLowerCase();
+    if (computerScore == 5 || playerScore == 5  ) {
+        if (computerScore > playerScore) {
+           alert("GAME OVER! COMPUTER WINS!")
+        } else if (playerScore > computerScore) {
+            alert ("GAME OVER! YOU WIN!")
+        } return gameOver(); 
+    } 
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore++;
-        return "You lose! Paper beats Rock";  
+        return textResult.textContent="You lose! Paper beats Rock";  
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
         playerScore++;
-        return "You Win! Scissor beats Paper";
+        return textResult.textContent="You Win! Scissor beats Paper";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
-        return "You Win! Paper beats Rock"; 
+        return textResult.textContent="You Win! Paper beats Rock"; 
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
         computerScore++
-        return "You Lose! Rock beats Scissor";
+        return textResult.textContent="You Lose! Rock beats Scissor";
     } else if (playerSelection === "rock" && computerSelection === "scissor") {
         playerScore++
-        return "You Win! Rock beats Scissor";
+        return textResult.textContent="You Win! Rock beats Scissor";
     } else if (playerSelection === "paper" && computerSelection === "scissor") {
         computerScore++
-        return "You Lose! Scissor beats Paper";
+        return textResult.textContent="You Lose! Scissor beats Paper";
     } else (playerSelection = computerSelection)
-        return "Draw!";
-   
+        return textResult.textContent="Draw!";
+
 }
+    
+    //Listens for clicks on rock paper scissor images.
 
-//global variables
-let playerSelection = "Choose Rock, Paper, or Scissor";
-let computerScore = 0
-let playerScore = 0
- 
-// repeat until 5 games are played.
+    rock.addEventListener('click', () => {
+        playRound('rock', getComputerChoice())
+        round++
+        results.textContent= "Your score is " + playerScore + " | Computer score is " + computerScore
+    })
 
-function game() {
-        for (let i = 0; i < 5; i++) {
-       console.log(playRound(prompt(playerSelection),getComputerChoice())); 
-       console.log(playerScore,computerScore)
-    }  if (computerScore>playerScore) {
-        return console.log("computer wins")
-    } else 
-                console.log("player wins")
-}
+    paper.addEventListener('click', () => {
+        playRound('paper', getComputerChoice())
+        round++
+        results.textContent= "Your score is " + playerScore + " | Computer score is " + computerScore
+    })
 
-game();
+    scissor.addEventListener('click', () => {
+        playRound('scissor', getComputerChoice())
+        round++
+        results.textContent= "Your score is " + playerScore + " | Computer score is " + computerScore
+    })
